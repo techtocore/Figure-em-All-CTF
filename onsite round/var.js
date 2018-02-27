@@ -1,0 +1,1 @@
+var _0xb5c5=["\x6F\x6E\x65"];var target=_0xb5c5[0]

@@ -9,9 +9,9 @@
   "author": "Akash",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "cookie-parser": "^1.4.3",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
     "set-cookie": "^0.0.4",
-    "express": "^4.16.2"
+    "express": "^4.16.4"
   }
 }

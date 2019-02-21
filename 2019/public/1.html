@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquery.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <br>
+        <br>
+        <button type="button" onclick="update(0)">Fetch Details</button>
+        <br>
+        <br>
+        <p id="p">
+
+        </p>
+    </center>
+</body>
+<script>
+    function update(want) {
+
+        var json = {};
+        json.flag = want;
+
+        var settings = {
+            "async": true,
+            "crossDomain": false,
+            "url": "/update",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "cache-control": "no-cache"
+            },
+            "processData": false,
+            "data": JSON.stringify(json)
+        }
+
+        $.ajax(settings).done(function (response) {
+
+            var res = JSON.parse(response);
+
+            var html = '<br>';
+            html += "Name: ";
+            html += res.Name;
+            html += "<br>Dept: ";
+            html += res.Dept;
+            html += "<br>City: ";
+            html += res.City;
+            $("p").html(html);
+
+        }).fail(function () {
+
+            var html = 'Server Error! Pls contact the organizers (not a joke) ';
+
+            $("p").html(html);
+
+        });
+    }
+</script>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CTF 1</title>
+</head>
+
+<body>
+
+    <br>
+    <br>
+    <center>
+        <table border="1" cellspacing="0" cellpadding="0" bgcolor="#FFFFBD">
+            <tr>
+                <td width="400px">
+                    <form name="password1" style="padding-left:20px;">
+                        <p><strong> <br /> Username: </strong><input id="un" type="text" name="un" size="15" />
+                            <br>
+                            <strong> Password: </strong><input id="pw" type="password" name="password2" size="15" />
+                            <br>
+                            <br>
+                            <input type="button" value="Submit" onClick="submitentry()" />
+                            <br></p>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </center>
+
+</body>
+<script src="md5.js"></script>
+<script>
+    function submitentry() {
+        var un = document.getElementById('un').value;
+        var pw = document.getElementById('pw').value;
+        if (un === 'admin') {
+            if (md5(pw) === 'fc5e038d38a57032085441e7fe7010b0') {
+                window.location.href = '/details?un=' + un + '&pw=' + pw;
+            }
+            else
+                alert("Wrong Password");
+        }
+        else {
+            alert("you need to be an admin");
+        }
+    }
+</script>
+
+</html>

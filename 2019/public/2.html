@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CTF 2</title>
+</head>
+
+<body>
+
+    <br>
+    <br>
+    <center>
+        <table border="1" cellspacing="0" cellpadding="0" bgcolor="#FFFFBD">
+            <tr>
+                <td width="400px">
+                    <form name="password1" style="padding-left:20px;">
+                        <p><strong> <br /> Name: </strong><input id="un" type="text" name="un" size="15" />
+
+                            <br>
+                            <br>
+                            <input type="button" value="Submit" onClick="submitentry()" />
+                            <br></p>
+                    </form>
+                </td>
+            </tr>
+        </table>
+
+        <br>
+        <br>
+        <br>
+        <h2 id="demo"></h2>
+    </center>
+
+</body>
+<script>
+    function submitentry() {
+        var un = document.getElementById('un').value;
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "hello-template?name=" + un, true);
+        xhttp.send();
+    }
+</script>
+
+</html>
